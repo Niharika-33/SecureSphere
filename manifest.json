@@ -1,0 +1,33 @@
+{
+  "manifest_version": 2,
+  "name": "SecureGuardExtension",
+  "version": "1.0",
+  "description": "A browser extension that provides password protection, login anomaly detection, and phishing prevention.",
+  "icons": {
+    "48": "assets/icon.png"
+  },
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_icon": "assets/icon.png"
+  },
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "webRequest",
+    "webRequestBlocking",
+    "storage",
+    "tabs",
+    "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    "assets/*"
+  ]
+}
